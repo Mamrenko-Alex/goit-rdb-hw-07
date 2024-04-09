@@ -1,0 +1,48 @@
+Task 1
+
+SELECT 
+    id,
+    date,
+    YEAR(date) AS Year,
+    MONTH(date) AS Month,
+    DAY(date) AS Day
+FROM orders
+
+__________________________________________________
+
+Task 2
+
+SELECT 
+    id,
+    date AS original_date,
+    DATE_ADD(date, INTERVAL 1 DAY) AS added_date
+FROM orders
+
+__________________________________________________
+
+Task 3
+
+SELECT 
+    id,
+    date AS original_date,
+    UNIX_TIMESTAMP(DATE) AS unix_date
+FROM orders
+
+__________________________________________________
+
+Task 4
+
+SELECT 
+    COUNT(date) AS how_much_betwen
+FROM orders
+WHERE date BETWEEN '1996-07-10 00:00:00' AND '1996-10-08 00:00:00'
+
+__________________________________________________
+
+Task 5
+
+SELECT 
+    id,
+    date,
+    JSON_OBJECT('id', id, 'date', date) AS json_format
+FROM orders
